@@ -12,7 +12,8 @@ class QuoteMachine extends React.Component {
           quote: '',
           author: '',
           number: ''
-      }
+      };
+    this.getQuote = this.getQuote.bind(this);
   }
 
   //Al iniciar cargo una frase
@@ -39,8 +40,8 @@ class QuoteMachine extends React.Component {
        })
  }
 
-//Una frase nueva ?? ver mejor solucion
- getNewQuote = () => {this.getQuote()}
+//Una frase nueva ?? ver mejor solucion // Esto que era redundante lo solucione agregando el bind.getQuote y en el render directamente ONCLICK = getQuote
+ //getNewQuote = () => {this.getQuote()}
 
  //Funcion para obtener color de fondo random, en formato RGB
  randomColor() {
@@ -70,7 +71,7 @@ class QuoteMachine extends React.Component {
             <TwitterShare quote={quote} author={author} />
             {/* Contador de frase para luego agregar 3 opciones de interaccion: Aleatorio, siguiente o anterior */}
             <p id="number">Frase N°{number}</p>
-            <button id="new-quote" className="button" onClick={this.getNewQuote}>Generar Frase</button>       
+            <button id="new-quote" className="button" onClick={this.getQuote}>Generar Frase</button>       
           </div>
         </div>
       {/* Pie de pagina */}
